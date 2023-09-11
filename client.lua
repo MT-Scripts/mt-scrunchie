@@ -11,30 +11,20 @@ RegisterNetEvent('mt-scrunchie:client:useScrunchie', function()
     local PlayerData = Core.Functions.GetPlayerData()
     local gender = PlayerData.charinfo.gender
     local ped = PlayerPedId()
-
-    if gender == 1 then
-        playAnim(Config.animDict, Config.animName, 1000)
-        Wait(1000)
-        if not DefaultHair or not DefaultHairTexture then
-            DefaultHair = GetPedDrawableVariation(ped, 2)
-            DefaultHairTexture = GetPedTextureVariation(ped, 2)
+    
+    playAnim(Config.animDict, Config.animName, 1000)
+    Wait(1000)
+    if not DefaultHair or not DefaultHairTexture then
+        DefaultHair = GetPedDrawableVariation(ped, 2)
+        DefaultHairTexture = GetPedTextureVariation(ped, 2)
+        if gender == 1 then
             SetPedComponentVariation(ped, 2, Config.femaleHair, DefaultHairTexture, 2)
         else
-            SetPedComponentVariation(ped, 2, DefaultHair, DefaultHairTexture, 2)
-            DefaultHair = nil
-            DefaultHairTexture = nil
+            SetPedComponentVariation(ped, 2, Config.maleHair, DefaultHairTexture, 2)
         end
     else
-        playAnim(Config.animDict, Config.animName, 1000)
-        Wait(1000)
-        if not DefaultHair or not DefaultHairTexture then
-            DefaultHair = GetPedDrawableVariation(ped, 2)
-            DefaultHairTexture = GetPedTextureVariation(ped, 2)
-            SetPedComponentVariation(ped, 2, Config.maleHair, DefaultHairTexture, 2)
-        else
-            SetPedComponentVariation(ped, 2, DefaultHair, DefaultHairTexture, 2)
-            DefaultHair = nil
-            DefaultHairTexture = nil
-        end
+        SetPedComponentVariation(ped, 2, DefaultHair, DefaultHairTexture, 2)
+        DefaultHair = nil
+        DefaultHairTexture = nil
     end
 end)
