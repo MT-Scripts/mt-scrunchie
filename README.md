@@ -1,7 +1,7 @@
 # mt-scrunchie
 Simple scrunchie script for QBCore
 
-#Installation
+# Installation
 - Using ox_inventory:
 Add this to ox_inventory/data/items.lua
 ```
