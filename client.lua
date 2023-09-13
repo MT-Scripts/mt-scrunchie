@@ -24,9 +24,9 @@ RegisterNetEvent('mt-scrunchie:client:useScrunchie', function()
     if not defaultHair or not defaultHairTexture then
         defaultHair = GetPedDrawableVariation(ped, 2)
         defaultHairTexture = GetPedTextureVariation(ped, 2)
-        if gender == 'male' then
+        if gender == 'female' then
             SetPedComponentVariation(ped, 2, Config.femaleHair, defaultHairTexture, 2)
-        elseif gender == 'female' then
+        elseif gender == 'male' then
             SetPedComponentVariation(ped, 2, Config.maleHair, defaultHairTexture, 2)
         end
     else
